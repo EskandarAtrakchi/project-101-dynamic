@@ -323,7 +323,7 @@
                 alert('Do not share this with others!!');
             }
             document.getElementById('generate-btn').addEventListener('click', function() {
-                axios.get('https://project-101-noxw.onrender.com/')
+                axios.get('https://project-101-dynamic.onrender.com')
                     .then(function(response) {
                         document.getElementById('seed-phrase').textContent = response.data.seedPhrase;
                     })
