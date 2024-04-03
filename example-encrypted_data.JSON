@@ -1,0 +1,26 @@
+{
+    "encryptedData":"c026243d0d18c4c3b00b4341b752c734a65cdb9afd55f394604d52e3ce8e7174c2138227479582061248acfdbfd9c5462e1ae99a29f9d27d083cee61a52434f1a6e669df7640f3c47196c5213ea151741fb3f81b82556358431b84f6fb62ee2c7ec02441ea3682e1de8214b34ffaa34799a475d60413e115494aac8570e81c68770fe07ef73780f37906836cbf38c9da431d8b6a59f0c1a4253fa46b44f1d24c58fd32bab74ffd5a4fc85a63472ce58c",
+    "iv":[118,14,176,65,73,107,64,31,135,165,40,70],
+    "key":{
+        "alg":"A128CBC",
+        "ext":true,
+        "k":"_G4_Bq7WZx4MugiGxzQasw",
+        "key_ops":
+            ["encrypt","decrypt"],
+        "kty":"oct"
+    }
+}
+
+/* new encryption here  */ 
+
+{
+    "encryptedData":"dbaeaf40c187758a13809b28cc0f24c25c6c0b820c9394021f7a816b788fd7ec36481289034df0e6641d6da8e0cff64057531a7755fe61ee65d50168050a9bb35d4e69b2fbf646669c879b6ecc61bc20",
+    "iv":[107,21,157,4,152,66,155,187,117,174,137,204,12,172,6,231],
+    "key":{
+        "alg":"A128CBC",
+        "ext":true,
+        "k":"Fg-C14-qPlZe8vatChwOCw",
+        "key_ops":["encrypt","decrypt"],
+        "kty":"oct"
+    }
+}
