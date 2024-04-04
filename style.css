@@ -250,3 +250,11 @@ label {
 #netWorthAnimation {
     display: none;
 }
+
+.calcResult {
+    font-size: 3em; 
+    text-align: center;
+    color: #ccc;
+    text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
+    animation: neon-glow 2s infinite alternate;
+}
