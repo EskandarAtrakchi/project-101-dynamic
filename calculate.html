@@ -40,9 +40,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="net-worth.html">Wallet Net-Worth</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="wallet-generate.html">Wallet-Generate</a>
-                </li>
             </ul>
         </div>
     </nav>
@@ -292,6 +289,13 @@
         </div>
     </div>
     <div id="WalletGeneration" class="tabcontent">
+        <h1 style="text-align: center;" >Crypto Wallet Seed Phrase Generator</h1>
+        
+        <div class="containerCalc">
+            <button id="generate-btn" class="btn" onclick="notify ()" >Generate Crypto Wallet</button>
+        </div>
+        
+        <br>
         <div class="container">
             <div class="first-div" >
                 
@@ -308,9 +312,9 @@
                 </div>
             </div>
             <div class="second-div" >
-    
+
                 <div id="seed-phrase"></div>
-    
+
             </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
