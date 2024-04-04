@@ -284,3 +284,36 @@ function walletTrack() {
         document.getElementById('netWorthAnimation').style.display = 'block';
     }
 }
+
+var originalNumber = 0; // Variable to hold the original number
+var currentNumber = 0; // Variable to hold the current number
+
+function incrementNumber() {
+    var numberInput = document.getElementById("numberInput").value;
+    var percentageInput = document.getElementById("percentageInput").value;
+
+    // Convert inputs to numbers
+    var number = parseFloat(numberInput);
+    var percentage = parseFloat(percentageInput);
+
+    // If either input is not a valid number, return
+    if (isNaN(number) || isNaN(percentage)) {
+        alert("Please enter valid numbers.");
+        return;
+    }
+
+    // If this is the first increment, set the original number
+    if (originalNumber === 0) {
+        originalNumber = number;
+        currentNumber = number;
+    }
+
+    // Calculate the increment amount
+    var incrementAmount = (percentage / 100) * currentNumber;
+
+    // Increment the current number
+    currentNumber += incrementAmount;
+
+    // Display the result
+    document.getElementById("result").innerText = "Result: " + currentNumber.toFixed(2);
+}

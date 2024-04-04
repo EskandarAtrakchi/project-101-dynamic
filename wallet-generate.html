@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 style="text-align: center;" >Crypto Wallet Seed Phrase Generator</h1>
+        
+        <div class="containerCalc">
+            <button id="generate-btn" class="btn" onclick="notify ()" >Generate Crypto Wallet</button>
+        </div>
+        
+        <br>
+        <div class="container">
+            <div class="first-div" >
+                
+                <div style:display:flex;>
+                    <div class="cube-loader">
+                        <div class="cube-top"></div>
+                        <div class="cube-wrapper">
+                        <span style="--i:0" class="cube-span"></span>
+                        <span style="--i:1" class="cube-span"></span>
+                        <span style="--i:2" class="cube-span"></span>
+                        <span style="--i:3" class="cube-span"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="second-div" >
+
+                <div id="seed-phrase"></div>
+
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script>
+            function notify () {
+                alert('Do not share this with others!!');
+            }
+            document.getElementById('generate-btn').addEventListener('click', function() {
+                axios.get('https://project-101-dynamic.onrender.com')
+                    .then(function(response) {
+                        document.getElementById('seed-phrase').textContent = response.data.seedPhrase;
+                    })
+                    .catch(function(error) {
+                        console.error('Error:', error);
+                        alert('An error occurred. Please try again.' , error );
+                    });
+            });
+        </script>
+</body>
+</html>
