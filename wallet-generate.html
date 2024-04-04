@@ -96,7 +96,7 @@
             alert('Do not share this with others!!');
         }
         document.getElementById('generate-btn').addEventListener('click', function() {
-            axios.get('https://project-101-dynamic.onrender.com')
+            axios.get('https://project-101-dynamic.onrender.com/wallet-generate.html')
                 .then(function(response) {
                     document.getElementById('seed-phrase').textContent = response.data.seedPhrase;
                 })
@@ -106,7 +106,7 @@
                 });
         });
     </script>
-    
+
     <!--Arrow to go up -->
     <a href="#top">
         <h1 style="float: right;"><img src="https://archive.org/download/arrowup/arrowup.gif" style="width: 13%; height: 33%; float: right;" alt="IMG-HERE" /></h1>
