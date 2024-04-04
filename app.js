@@ -298,7 +298,7 @@ function incrementNumber() {
     var percentage = parseFloat(percentageInput);
 
     // If either input is not a valid number, return
-    if (isNaN(number) || isNaN(percentage)) {
+    if (isNaN(number) || isNaN(percentage) || number < 0 || percentage < 0) {
         alert("Please enter valid numbers.");
         return;
     }
