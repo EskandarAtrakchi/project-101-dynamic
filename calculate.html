@@ -266,9 +266,9 @@
                 <h1>Crypto Average Buying Price Per Coin Calculator</h1>
                 <form id="cryptoForm">
                     <label for="coinAmount">Enter Coin Amount:</label>
-                    <input type="number" id="coinAmount" placeholder="Coin Amount" required>
+                    <input type="number" id="coinAmount" placeholder="Coin Amount" min="0" required >
                     <label for="coinPrice">Enter Coin Price (per coin):</label>
-                    <input type="number" id="coinPrice" placeholder="Coin Price" required>
+                    <input type="number" id="coinPrice" placeholder="Coin Price" min="0" required>
                     
                     <button type="button" class="btn" onclick="addTransaction() , showBTN()"  >Add Transaction</button>
                 </form>
@@ -307,13 +307,13 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="second-div" >
                 <h1>Increment Number by Percentage</h1>
                 <label for="numberInput">Enter a number:</label>
-                <input type="number" id="numberInput">
+                <input type="number" id="numberInput" min="0">
                 <label for="percentageInput">Enter percentage to increment:</label>
-                <input type="number" id="percentageInput">
+                <input type="number" id="percentageInput" min="0">
                 <button class="btn" onclick="incrementNumber()">Increment</button>
                 <p id="result"></p>
             </div>

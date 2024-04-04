@@ -285,7 +285,8 @@ function walletTrack() {
     }
 }
 
-var originalNumber = 0; // Variable to hold the original number
+var currentNumber = 0; // Variable to hold the current number
+
 var currentNumber = 0; // Variable to hold the current number
 
 function incrementNumber() {
@@ -302,18 +303,17 @@ function incrementNumber() {
         return;
     }
 
-    // If this is the first increment, set the original number
-    if (originalNumber === 0) {
-        originalNumber = number;
+    // If this is the first increment, set the current number
+    if (currentNumber === 0) {
         currentNumber = number;
     }
 
-    // Calculate the increment amount
+    // Calculate the increment amount based on the current number
     var incrementAmount = (percentage / 100) * currentNumber;
 
     // Increment the current number
     currentNumber += incrementAmount;
 
     // Display the result
-    document.getElementById("result").innerText = "Result: " + currentNumber.toFixed(2);
+    document.getElementById("result").innerText = "Result: " + currentNumber.toFixed(4);
 }
