@@ -292,13 +292,43 @@
         </div>
     </div>
     <div id="WalletGeneration" class="tabcontent">
-        <h1>Increment Number by Percentage</h1>
-        <label for="numberInput">Enter a number:</label>
-        <input type="number" id="numberInput">
-        <label for="percentageInput">Enter percentage to increment:</label>
-        <input type="number" id="percentageInput">
-        <button class="btn" onclick="incrementNumber()">Increment</button>
-        <p id="result"></p>
+        <div class="container">
+            <div class="first-div" >
+                
+                <div style:display:flex;>
+                    <div class="cube-loader">
+                        <div class="cube-top"></div>
+                        <div class="cube-wrapper">
+                        <span style="--i:0" class="cube-span"></span>
+                        <span style="--i:1" class="cube-span"></span>
+                        <span style="--i:2" class="cube-span"></span>
+                        <span style="--i:3" class="cube-span"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="second-div" >
+    
+                <div id="seed-phrase"></div>
+    
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script>
+            function notify () {
+                alert('Do not share this with others!!');
+            }
+            document.getElementById('generate-btn').addEventListener('click', function() {
+                axios.get('https://project-101-dynamic.onrender.com')
+                    .then(function(response) {
+                        document.getElementById('seed-phrase').textContent = response.data.seedPhrase;
+                    })
+                    .catch(function(error) {
+                        console.error('Error:', error);
+                        alert('An error occurred. Please try again.' , error );
+                    });
+            });
+        </script>
         
     </div>
 
