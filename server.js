@@ -7,7 +7,7 @@ const port = process.env.PORT || 3010;
 app.use(express.json());
 app.use(cors());
 
-app.get('/calculate.html', (req, res) => {
+app.get('/wallet-generate.html', (req, res) => {
     // Generate the seed phrase
     const seedPhrase = bip39.generateMnemonic();
     // Send the seed phrase as JSON response
