@@ -10,11 +10,11 @@ app.use(express.json());
 app.use(cors());
 
 app.get('/', (req, res) => {
-
     const response = 'working fine!';
     console.log(response); 
-    
+    res.send(response); // Send response back to the client
 });
+
 
 app.get('/wallet-generate.html', (req, res) => {
     // Generate the seed phrase
