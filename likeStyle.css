@@ -186,6 +186,7 @@
 
 .cube-loader {
   position: relative;
+/* u can choose any size */
   width: 75px;
   height: 75px;
   transform-style: preserve-3d;
@@ -533,7 +534,6 @@
     blinkCursor 0.5s step-end infinite alternate;
   margin-top: 1.5em;
 }
-
 /*charts animations starts here */
 
 .pyramid-loader {
