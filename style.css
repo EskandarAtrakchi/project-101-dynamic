@@ -110,7 +110,7 @@ body, html {
   }
 
   .dark-mode, body {
-    background-image: url('https://github.com/EskandarAtrakchi/project-101-dynamic/blob/main/background-img.jpg?raw=true') !important;
+    /*background-image: url('https://github.com/EskandarAtrakchi/project-101-dynamic/blob/main/background-img.jpg?raw=true') !important;*/
     background-size: cover; /* Cover the entire viewport */
     background-repeat: repeat; /* Repeat the image horizontally and vertically */
     background-repeat: repeat-y; /* Repeat the image vertically */
@@ -120,7 +120,7 @@ body, html {
 .dark-mode .left,
 .dark-mode .right,
 .dark-mode .w3-border-right {
-    background-image: url('https://github.com/EskandarAtrakchi/project-101-dynamic/blob/main/background-img.jpg?raw=true') !important;
+    /*background-image: url('https://github.com/EskandarAtrakchi/project-101-dynamic/blob/main/background-img.jpg?raw=true') !important;*/
     background-size: cover; /* Cover the entire viewport */
     background-repeat: repeat; /* Repeat the image horizontally and vertically */
     background-repeat: repeat-y; /* Repeat the image vertically */
