@@ -3,6 +3,7 @@ const cors = require('cors');
 const bip39 = require('bip39');
 const axios = require('axios');
 const app = express();
+
 const port = process.env.PORT || 3010;
 
 app.use(express.json());
@@ -22,7 +23,7 @@ app.get('/wallet-generate.html', (req, res) => {
     res.json({ seedPhrase });
 });
 
-app.get('/ticker.html', async (req, res) => {
+app.get('/charts.html', async (req, res) => {
     try {
         //wait for axios to get the API response 
         const response = await axios.get('https://api.alternative.me/v1/ticker/');
