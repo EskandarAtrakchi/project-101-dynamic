@@ -197,13 +197,25 @@ function calcDividedEqually () {
 }
 //Dark mode button 
 
-function darkMode () {
+function darkMode() {
+    const toggleBtn = document.getElementById("toggleBtn");
+    const body = document.body;
 
-    document.getElementById("toggleBtn").addEventListener("click", function() {
-        // Toggle dark mode class on body
-        document.body.classList.toggle("dark-mode");
+    // Check if dark mode is enabled in local storage
+    const isDarkMode = localStorage.getItem("darkMode") === "true";
+
+    // Set initial mode based on local storage
+    if (isDarkMode) {
+        body.classList.add("dark-mode");
+    }
+
+    // Toggle dark mode class on body and save mode to local storage
+    toggleBtn.addEventListener("click", function () {
+        body.classList.toggle("dark-mode");
+        const isDarkModeEnabled = body.classList.contains("dark-mode");
+        // Save mode to local storage
+        localStorage.setItem("darkMode", isDarkModeEnabled);
     });
-
 }
 
 function w3_open() {

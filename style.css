@@ -108,25 +108,38 @@ body, html {
     color: rgb(4, 4, 38);
   }
 
-  .dark-mode {
-    background-color: #ffffff;
+  .dark-mode, html {
+    background-image: url('https://github.com/EskandarAtrakchi/project-101-dynamic/blob/main/background-img.jpg?raw=true');
+    background-color: #ffffff; /* Set background color to white */
+    background-size: cover; /* Cover the entire viewport */
+    background-repeat: repeat; /* Repeat the image horizontally and vertically */
+    background-repeat: repeat-y; /* Repeat the image vertically */
     color: #000000;
-    .left {
-      background-color: #ffffff;
-      color: #000000;
-    }
-    .right {
-        background-color: #ffffff;
-        color: #000000;
-    }
-    .table td {
-        color: #000000;
-    }
-    .w3-border-right{
-        background-color: #ffffff;
-    }
-    
-  }
+}
+
+.dark-mode .left,
+.dark-mode .right,
+.dark-mode .w3-border-right {
+    background-image: url('https://github.com/EskandarAtrakchi/project-101-dynamic/blob/main/background-img.jpg?raw=true');
+    background-size: cover; /* Cover the entire viewport */
+    background-repeat: repeat; /* Repeat the image horizontally and vertically */
+    background-repeat: repeat-y; /* Repeat the image vertically */
+    color: #000000;
+}
+
+.dark-mode p,
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode h3,
+.dark-mode h4,
+.dark-mode h5,
+.dark-mode h6,
+.dark-mode div,
+.dark-mode .table td {
+    color: #000000;
+}
+/*dark mode ends here */
+
   #toggleBtn {
     float: right;
   }
@@ -314,23 +327,4 @@ label {
     color: #ccc;
     text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
     animation: neon-glow 2s infinite alternate;
-}
-
-/* Style for the navigation button */
-.nav-chilling-link {
-    float: right; /* Align to the right side */
-    padding: 10px; /* Add some padding for better visibility */
-    color: #333; /* Text color */
-    font-weight: bold; /* Make text bold */
-    background-color: #f0f0f0; /* Background color */
-    border: 1px solid #ccc; /* Add a border for better visibility */
-    border-radius: 5px; /* Round the corners */
-    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
-    cursor: pointer; /* Change cursor to pointer */
-}
-
-/* Hover effect */
-.nav-chilling-link:hover {
-    background-color: #ccc; /* Change background color on hover */
-    color: #fff; /* Change text color on hover */
 }
