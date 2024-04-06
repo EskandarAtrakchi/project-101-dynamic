@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const bip39 = require('bip39');
+const axios = require('axios');
 const app = express();
 const port = process.env.PORT || 3010;
 
