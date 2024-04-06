@@ -333,18 +333,5 @@ label {
 /* Style for the navigation link */
 .nav-chilling-link {
     float: right; /* Align to the right side */
-    text-decoration: none; /* Remove underline */
     padding: 10px; /* Add some padding for better visibility */
-    color: #333; /* Text color */
-    font-weight: bold; /* Make text bold */
-    background-color: #f0f0f0; /* Background color */
-    border: 1px solid #ccc; /* Add a border for better visibility */
-    border-radius: 5px; /* Round the corners */
-    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
-}
-
-/* Hover effect */
-.nav-chilling-link:hover {
-    background-color: #ccc; /* Change background color on hover */
-    color: #fff; /* Change text color on hover */
 }
