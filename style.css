@@ -108,7 +108,7 @@ body, html {
     color: rgb(4, 4, 38);
   }
 
-  .dark-mode, html {
+  .dark-mode, body, html {
     background-image: url('https://github.com/EskandarAtrakchi/project-101-dynamic/blob/main/background-img.jpg?raw=true');
     background-color: #ffffff; /* Set background color to white */
     background-size: cover; /* Cover the entire viewport */
