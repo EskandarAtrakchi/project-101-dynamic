@@ -546,7 +546,7 @@ function startLoadingTickerData() {
 
     // Log the current time
     console.log(`Fetching data at ${currentTime}`);
-    document.getElementById('time-reload').innerHTML = `Prices Last Update At: ${currentTime}`;
+    document.getElementById('time-reload').innerHTML = `Last Update Price At: ${currentTime}`;
 
     // Call the function immediately
     loadTickerData();
