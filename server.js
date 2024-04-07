@@ -18,11 +18,15 @@ app.get('/', (req, res) => {
 
 app.get('/wallet-generate.html', (req, res) => {
 
-    // Generate the seed phrase
-    const seedPhrase = bip39.generateMnemonic();
-    // Send the seed phrase as JSON response
-    res.json({ seedPhrase });
-
+    try {
+        // Generate the seed phrase
+        const seedPhrase = bip39.generateMnemonic();
+        // Send the seed phrase as JSON response
+        res.json({ seedPhrase });
+    } catch (error) {
+        console.error('Error fetching data from backend:', error.message);
+        res.status(500).json({ error: 'Error fetching data from backend' });
+    }
 });
 
 // route number two ticker 
