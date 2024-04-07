@@ -4,8 +4,8 @@ body, html {
     height: 100%;
     margin: 0;
     font-family: Arial;
-    background-color: #333;
-    background-image: url('') !important;
+    /*background-color: #333;*/
+    background-image: url('https://plainbackground.com/download.php?imagename=5b5b5b.png');
     color:#ffffff;
     .table td {
         color: #ffffff;
@@ -14,6 +14,39 @@ body, html {
         background-color: #333;
     }
 }
+
+/*dark mode starts here */
+
+.dark-mode, body {
+    background-image: url('https://github.com/EskandarAtrakchi/project-101-dynamic/blob/main/background-img.jpg?raw=true');
+    background-size: cover; /* Cover the entire viewport */
+    background-repeat: repeat; /* Repeat the image horizontally and vertically */
+    background-repeat: repeat-y; /* Repeat the image vertically */
+    color: #000000;
+}
+
+.dark-mode .left,
+.dark-mode .right,
+.dark-mode .w3-border-right {
+    background-image: url('https://github.com/EskandarAtrakchi/project-101-dynamic/blob/main/background-img.jpg?raw=true');
+    background-size: cover; /* Cover the entire viewport */
+    background-repeat: repeat; /* Repeat the image horizontally and vertically */
+    background-repeat: repeat-y; /* Repeat the image vertically */
+    color: #000000;
+}
+
+.dark-mode p,
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode h3,
+.dark-mode h4,
+.dark-mode h5,
+.dark-mode h6,
+.dark-mode div,
+.dark-mode .table td {
+    color: #000000;
+}
+/*dark mode ends here */
 
 .container {
     height: 100%;
@@ -108,37 +141,6 @@ body, html {
     background: linear-gradient(270deg, rgba(2, 29, 78, 0.681) 0%, rgba(31, 215, 232, 0.873) 60%);
     color: rgb(4, 4, 38);
   }
-
-  .dark-mode, body {
-    /*background-image: url('https://github.com/EskandarAtrakchi/project-101-dynamic/blob/main/background-img.jpg?raw=true') !important;*/
-    background-size: cover; /* Cover the entire viewport */
-    background-repeat: repeat; /* Repeat the image horizontally and vertically */
-    background-repeat: repeat-y; /* Repeat the image vertically */
-    color: #000000;
-}
-
-.dark-mode .left,
-.dark-mode .right,
-.dark-mode .w3-border-right {
-    /*background-image: url('https://github.com/EskandarAtrakchi/project-101-dynamic/blob/main/background-img.jpg?raw=true') !important;*/
-    background-size: cover; /* Cover the entire viewport */
-    background-repeat: repeat; /* Repeat the image horizontally and vertically */
-    background-repeat: repeat-y; /* Repeat the image vertically */
-    color: #000000;
-}
-
-.dark-mode p,
-.dark-mode h1,
-.dark-mode h2,
-.dark-mode h3,
-.dark-mode h4,
-.dark-mode h5,
-.dark-mode h6,
-.dark-mode div,
-.dark-mode .table td {
-    color: #000000;
-}
-/*dark mode ends here */
 
   #toggleBtn {
     float: right;
