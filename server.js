@@ -2,7 +2,7 @@ const axios = require('axios');
 const express = require('express');
 const cors = require('cors');
 const bip39 = require('bip39');
-const fetch = require('node-fetch');
+const fetch = require('node-fetch'); // This line will work with node-fetch@2.x
 const app = express();
 
 const port = process.env.PORT || 3010;
