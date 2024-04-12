@@ -36,14 +36,14 @@ app.get('/charts.html', async (req, res) => {
     }
 });
 
-app.get('/portfolio.html', async (req, res) => {
+app.get('/portfolio.html/:address', async (req, res) => {
     const address = req.params.address;
     const response = await fetch(`https://deep-index.moralis.io/api/v2.2/wallets/${address}/tokens?chain=eth&exclude_spam=true&exclude_unverified_contracts=true`, 
     {
         method: 'GET', 
         headers: {
             'Content-Type': 'application/json',
-            'X-API-Key': process.env.REACT_APP_MORALIS_API_KEY
+            'API-Key': process.env['API-Key'] // Use the environment variable
         },
     });
     const data = await response.json();
