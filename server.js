@@ -36,7 +36,7 @@ app.get('/charts.html', async (req, res) => {
     }
 });
 
-app.get('/fetchAssets/:address', async (req, res) => {
+app.get('/portfolio.html', async (req, res) => {
     const address = req.params.address;
     const response = await fetch(`https://deep-index.moralis.io/api/v2.2/wallets/${address}/tokens?chain=eth&exclude_spam=true&exclude_unverified_contracts=true`, 
     {
