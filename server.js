@@ -43,7 +43,7 @@ app.get('/portfolio.html/:address', async (req, res) => {
         method: 'GET', 
         headers: {
             'Content-Type': 'application/json',
-            'x-API-Key': process.env['x-API-Key'] // Use the environment variable
+            'X-API-Key': process.env['X-API-Key'] // Use the environment variable
         },
     });
     const data = await response.json();
