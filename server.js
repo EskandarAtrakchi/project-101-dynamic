@@ -50,6 +50,25 @@ app.get('/portfolio.html/:address', async (req, res) => {
     res.send(data);
 });
 
+app.post('/net-worth.html', async (req, res) => {
+    const { walletAddress, chain } = req.body;
+    const options = {
+        method: 'GET',
+        headers: {
+            accept: 'application/json',
+            'X-API-Key': process.env['X-API-Key']
+        },
+    };
+    try {
+        const response = await fetch(`https://deep-index.moralis.io/api/v2.2/wallets/${walletAddress}/net-worth?chains%5B0%5D=${chain}&exclude_spam=true&exclude_unverified_contracts=true`, options);
+        const data = await response.json();
+        res.json(data);
+    } catch (err) {
+        console.error('Error fetching data from external API:', err.message);
+        res.status(500).json({ error: 'Error fetching data from external API' });
+    }
+});
+
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}`);
 });
