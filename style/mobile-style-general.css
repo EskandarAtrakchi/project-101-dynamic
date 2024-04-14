@@ -1,0 +1,60 @@
+@media only screen and (max-width: 600px) {
+    /* Make the navigation links stack vertically */
+    .navbar-nav {
+        flex-direction: column;
+    }
+
+    /* Increase the size of the navigation links for easier tapping */
+    .nav-link {
+        font-size: 1.5em;
+        padding: 10px;
+    }
+
+    /* Increase the size of the logo for better visibility */
+    .logo {
+        width: 100px;
+        height: 100px;
+    }
+
+    /* Make the tab buttons stack vertically and fill the width of the screen */
+    .tablink {
+        display: block;
+        width: 100%;
+    }
+
+    /* Increase the size of the tab buttons for easier tapping */
+    .tablink {
+        font-size: 1.5em;
+        padding: 10px;
+    }
+
+    /* Make the tab content fill the width of the screen */
+    .tabcontent {
+        width: 100%;
+    }
+
+    /* Increase the size of the text in the tab content for better readability */
+    .tabcontent h1, .tabcontent h3, .tabcontent p {
+        font-size: 1.5em;
+    }
+
+    /* Increase the size of the buttons in the tab content for easier tapping */
+    .tabcontent button {
+        font-size: 1.5em;
+        padding: 10px;
+    }
+    /* Adjust tablink buttons */
+    .tablink {
+        width: 100%;
+    }
+    /* Adjust tabcontent */
+    .tabcontent {
+        padding: 10px;
+    }
+    .nav-chilling-link{
+        display: none;
+    }
+    .cube-loader {
+        display: none;
+    }
+}

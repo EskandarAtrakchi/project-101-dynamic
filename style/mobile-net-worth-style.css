@@ -1,0 +1,9 @@
+
+@media only screen and (max-width: 767px) {
+    .wallet-track-header {
+        align-items: center;
+    }
+    .wallet-form {
+        width: 100%;
+    }
+  }

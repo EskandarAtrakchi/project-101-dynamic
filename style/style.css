@@ -1,0 +1,311 @@
+body, html {
+    height: 100%;
+}
+
+.dark-mode {
+    background-color: #333;
+    color: #ffffff; /* Dark mode text color */
+    .table td {
+        color: #ffffff;
+    }
+    
+    .w3-border-right{
+        background-color: #333;
+        color: #ffffff;
+    }
+    p, h1, h2, h3, h4, h5, h6, div {
+        color: #ffffff;
+    }
+    .left {
+        background-color: #333;
+        color: #ffffff;
+    } 
+    .right {
+        background-color: #333;
+        color: #ffffff;
+    }
+}
+
+#terminal-text {
+    color: #00ff00;
+}
+p, h1, h2, h3, h4, h5, h6, div {
+    color: #000000;
+}
+
+.table td {
+    color: #000000;
+}
+
+.w3-border-right{
+    background-color: #ffffff;
+    color: #000000;
+}
+
+
+/*dark mode ends here */
+
+.container {
+    height: 100%;
+    position: relative;
+}
+
+.split {
+    width: 100%;
+    height: 50%;
+    position: absolute;
+    overflow: auto;
+    padding: 50px;
+    box-sizing: border-box;
+    border: #444 solid 1px;
+}
+
+.left {
+    top: 0;
+    background-color: #ccc;
+    color: #000000;
+}
+
+.right {
+    bottom: 0;
+    background-color: #ccc;
+    color: #000000;
+}
+
+/* For screens larger than 600px wide, split the screen into two columns */
+@media (min-width: 600px) {
+    .split {
+        width: 50%;
+        height: 100%;
+    }
+
+    .left {
+        top: auto;
+        left: 0;
+    }
+
+    .right {
+        bottom: auto;
+        right: 0;
+    }
+}
+
+.equationContainer  {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.table {
+    width: 100%; 
+}
+
+.logo {
+    width: 4%;
+    height: 4%;
+    padding-left: 1.1%;
+}
+
+.navbar-dark {
+    background-color: #444 !important;
+}
+
+  /*style for internet connection & calc btn */
+  .btn {
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 1rem 2.5rem;
+    border: none;
+    outline: none;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    background-color: rgb(14, 14, 26);
+    color: rgb(234, 234, 234);
+    font-weight: 700;
+    transition: 0.6s;
+    box-shadow: 0px 0px 60px #1f4c65;
+    -webkit-box-reflect: below 10px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.03)); /* Reduce opacity to lower reflection */
+  }
+  
+  .btn:active {
+    scale: 0.92;
+  }
+  
+  .btn:hover {
+    background: rgb(2,29,78);
+    background: linear-gradient(270deg, rgba(2, 29, 78, 0.681) 0%, rgba(31, 215, 232, 0.873) 60%);
+    color: rgb(4, 4, 38);
+  }
+
+  .animationDivForDecryption {
+    display: flex;
+  }
+  
+  /* Container for the two divs */
+.container {
+    display: flex;
+}
+
+/* Style tab links */
+.tablink {
+    background-color: #555;
+    color: white;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 17px;
+    width: 25%;
+  }
+  
+  .tablink:hover {
+    background-color: #777;
+  }
+  
+  /* Style the tab content (and add height:100% for full page content) */
+  .tabcontent {
+    color: white;
+    display: none;
+    padding: 100px 20px;
+    height: 100%;
+  }
+
+
+/*input fields style starts here */
+/* CSS for input fields */
+input[type="number"] {
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+/* CSS for labels */
+label {
+    margin-top: 10px;
+    display: block;
+    font-weight: bold;
+}
+
+/*seedphrase styling starts here*/
+
+#seed-phrase {
+    font-size: 3em; 
+    text-align: center;
+    color: #ccc;
+    text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
+    animation: neon-glow 2s infinite alternate;
+}
+
+/*style btn in calculate.html*/
+
+#downloadButton {
+    display: none;
+}
+
+#wallet-form {
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#wallet-form input[type="text"],
+#wallet-form select {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#result {
+    margin-top: 20px;
+}
+
+/*net-worth-animation starts here */
+
+#netWorthAnimation {
+    display: none;
+}
+
+.calc-per-increments {
+    font-size: 3em; 
+    text-align: center;
+    color: #ccc;
+    text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
+    animation: neon-glow 2s infinite alternate;
+}
+
+.calc-find-avg {
+    font-size: 1.1em; 
+    text-align: center;
+    color: #ccc;
+    text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
+    animation: neon-glow 2s infinite alternate;
+}
+/*index images fear and greed */
+.index-container {
+    width: 90%;
+    padding-left: 5%;
+    text-align: center;
+}
+
+.index-images {
+    display: flex;
+    justify-content: space-between;
+}
+
+.index-images img {
+    width: 45%;
+    max-width: 100%; 
+    border: 1px solid #ccc; 
+    box-sizing: border-box;
+}
+/*ticker container style*/
+.ticker-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Style for the input field */
+.ticker-input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    width: 50%; 
+}
+
+.wallet-generate {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.ticker-heading {
+    text-align:center;
+}
+
+#time-reload {
+    font-size: 100%;
+    color: #ccc;
+    text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
+    animation: neon-glow 2s infinite alternate;
+}
+
+/*chilling nav link styling */
+/* Style for the navigation link */
+.nav-chilling-link {
+    float: right; /* Align to the right side */
+    padding: 10px; /* Add some padding for better visibility */
+}
