@@ -69,6 +69,35 @@ app.post('/net-worth.html', async (req, res) => {
     }
 });
 
+// API endpoints
+app.get('/equations.html', async (req, res) => {
+    try {
+        const response = await fetch('https://bitcoinexplorer.org/api/blockchain/coins');
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        res.json(data);
+    } catch (error) {
+        console.error('Error fetching coin data:', error);
+        res.status(500).json({ error: 'An error occurred while fetching coin data' });
+    }
+});
+
+app.get('/equations.html', async (req, res) => {
+    try {
+        const response = await fetch('https://bitcoinexplorer.org/api/blockchain/next-halving');
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        res.json(data);
+    } catch (error) {
+        console.error('Error fetching next halving data:', error);
+        res.status(500).json({ error: 'An error occurred while fetching next halving data' });
+    }
+});
+
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}`);
 });
