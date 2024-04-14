@@ -564,3 +564,55 @@ function startLoadingTickerData() {
         loadTickerData();
     }, 90000);
 }
+
+//example: {"supply":"19682380.49276744","type":"calculated"}
+function fetchingBTCCirculationSupply () {
+    // Fetch data from local server
+    fetch('http://localhost:3010/coins.html')
+    .then(response => {
+    if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    return response.json();
+    })
+    .then(data => {
+        populateTable(data, 'coinsTable');
+    })
+    .catch(error => {
+    console.log('Fetch failed: ', error);
+    });
+}
+
+function fetchingBTCHalvingData () {
+    //example: {"nextHalvingIndex":4,"nextHalvingBlock":840000,"nextHalvingSubsidy":"3.125","blocksUntilNextHalving":783,"timeUntilNextHalving":"5 days, 7 hours","nextHalvingEstimatedDate":"2024-04-20T00:13:57.784Z"}
+    fetch('http://localhost:3010/next-halving')
+    .then(response => {
+    if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    return response.json();
+    })
+    .then(data => {
+        populateTable(data, 'halvingTable');
+    })
+    .catch(error => {
+    console.log('Fetch failed: ', error);
+    });
+}
+
+function populateTable(data, tableId) {
+    const table = document.getElementById(tableId);
+    const tbody = table.querySelector('tbody');
+
+    // Clear existing rows
+    tbody.innerHTML = '';
+
+    // Populate table with data
+    for (const key in data) {
+        if (Object.hasOwnProperty.call(data, key)) {
+            const value = data[key];
+            const row = `<tr><td>${key}</td><td>${value}</td></tr>`;
+            tbody.insertAdjacentHTML('beforeend', row);
+        }
+    }
+}
