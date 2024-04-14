@@ -602,7 +602,7 @@ function fetchingBTCHalvingData () {
 
 function populateTable(data, tableId) {
     const table = document.getElementById(tableId);
-    const tbody = table.querySelector('tbody');
+    const tbody = table.getElementsByClassName('tbody-BTC-DATA');
 
     // Clear existing rows
     tbody.innerHTML = '';
