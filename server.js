@@ -70,7 +70,7 @@ app.post('/net-worth.html', async (req, res) => {
 });
 
 // API endpoints
-app.get('/equations.html', async (req, res) => {
+app.get('/coins', async (req, res) => {
     try {
         const response = await fetch('https://bitcoinexplorer.org/api/blockchain/coins');
         if (!response.ok) {
@@ -84,7 +84,7 @@ app.get('/equations.html', async (req, res) => {
     }
 });
 
-app.get('/equations.html', async (req, res) => {
+app.get('/next-halving', async (req, res) => {
     try {
         const response = await fetch('https://bitcoinexplorer.org/api/blockchain/next-halving');
         if (!response.ok) {
