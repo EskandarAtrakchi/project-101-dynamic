@@ -568,7 +568,7 @@ function startLoadingTickerData() {
 //example: {"supply":"19682380.49276744","type":"calculated"}
 function fetchingBTCCirculationSupply () {
     // Fetch data from local server
-    fetch('http://localhost:3010/coins.html')
+    fetch('https://project-101-dynamic.onrender.com/coins')
     .then(response => {
     if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -585,7 +585,7 @@ function fetchingBTCCirculationSupply () {
 
 function fetchingBTCHalvingData () {
     //example: {"nextHalvingIndex":4,"nextHalvingBlock":840000,"nextHalvingSubsidy":"3.125","blocksUntilNextHalving":783,"timeUntilNextHalving":"5 days, 7 hours","nextHalvingEstimatedDate":"2024-04-20T00:13:57.784Z"}
-    fetch('http://localhost:3010/next-halving')
+    fetch('https://project-101-dynamic.onrender.com/next-halving')
     .then(response => {
     if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
