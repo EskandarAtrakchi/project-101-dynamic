@@ -1,9 +1,0 @@
-{
-    "manifest_version": 3,
-    "name": "Project-101",
-    "description": "Developed by Esakdnar Atrakchi",
-    "version": "1.0",
-    "action": {
-      "default_popup": "https://eskandaratrakchi.github.io/project-101-dynamic/index.html"
-    }
-}
