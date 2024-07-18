@@ -18,7 +18,7 @@
       window.addEventListener('resize', scroll);
   
       scroll();
-  
+   
       function scroll() {
   
         visible.length = 0;
