@@ -1,0 +1,14 @@
+@media only screen and (max-width: 767px) {
+    table { 
+        width: 100%;
+    }
+    thead {
+        width: 100%;
+    }
+    .equationContainer {
+        width: 100%;
+        padding-left: 0%;
+        padding-right: 0%;
+        padding-bottom: 0%;
+    }
+  }

@@ -1,0 +1,39 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #fff;
+}
+
+.app {
+    margin: 20px 160px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    text-align: left;
+    padding: 14px 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    color: #9da0a6;
+}
+
+.asset-logo {
+    width: 40px;
+    height: 40px;
+}
+
+.positive {
+    color: #4fbf67;
+}
+
+.negative {
+    color: #ff5c5c;
+}

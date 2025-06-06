@@ -1,0 +1,11 @@
+{    "encryptedData":"",
+    "iv":[],
+    "key":{
+        "alg":"A128CBC",
+        "ext":true,
+        "k":"",
+        "key_ops":
+            ["encrypt","decrypt"],
+        "kty":"oct"
+    }
+}
