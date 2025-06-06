@@ -9,6 +9,131 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { useToast } from "@/hooks/use-toast"
 import { Search, AlertCircle, TrendingUp, Gauge } from "lucide-react"
 
+const coinSymbolToIdMap: { [key: string]: string } = {
+  btc: "bitcoin",
+  eth: "ethereum",
+  near: "near",
+  sol: "solana",
+  ada: "cardano",
+  dot: "polkadot",
+  avax: "avalanche-2",
+  bnb: "binancecoin",
+  xrp: "ripple",
+  doge: "dogecoin",
+  link: "chainlink",
+  ltc: "litecoin",
+  sui: "sui",
+    trx: "tron",
+  matic: "matic-network",
+  shib: "shiba-inu",
+  uni: "uniswap",
+  atom: "cosmos",
+  etc: "ethereum-classic",
+  xlm: "stellar",
+  bch: "bitcoin-cash",
+  xmr: "monero",
+  egld: "elrond-erd-2",
+  aave: "aave",
+  axs: "axie-infinity",
+  sand: "the-sandbox",
+  mana: "decentraland",
+  gala: "gala",
+  hbar: "hedera-hashgraph",
+  icp: "internet-computer",
+  apt: "aptos",
+  arb: "arbitrum",
+  op: "optimism",
+  chz: "chiliz",
+  qnt: "quant-network",
+  flow: "flow",
+  render: "render-token",
+  ldo: "lido-dao",
+  imx: "immutable-x",
+  enj: "enjincoin",
+  cro: "crypto-com-chain",
+  ftm: "fantom",
+  gmx: "gmx",
+  nexo: "nexo",
+  zec: "zcash",
+  dash: "dash",
+  waves: "waves",
+  crv: "curve-dao-token",
+  snx: "synthetix-network-token",
+  comp: "compound-governance-token",
+  bal: "balancer",
+  kava: "kava",
+  celo: "celo",
+  rlc: "iexec-rlc",
+  stx: "stacks",
+  ksm: "kusama",
+  mina: "mina-protocol",
+  ankr: "ankr",
+  hot: "holo",
+  btt: "bittorrent",
+  spell: "spell-token",
+  sushiswap: "sushi",
+  omg: "omisego",
+  bat: "basic-attention-token",
+  dodo: "dodo",
+  ocean: "ocean-protocol",
+  dent: "dent",
+  vet: "vechain",
+  zk: "zkspace",
+  dydx: "dydx",
+  skale: "skale",
+  reef: "reef",
+  fetch: "fetch-ai",
+  mask: "mask-network",
+  woo: "woo-network",
+  api3: "api3",
+  aleph: "aleph",
+  gas: "gas",
+  wan: "wanchain",
+  sys: "syscoin",
+  rad: "radicle",
+  pols: "polkastarter",
+  perp: "perpetual-protocol",
+  nmr: "numeraire",
+  dnt: "district0x",
+  xyo: "xyo-network",
+  cvc: "civic",
+  powr: "power-ledger",
+  req: "request-network",
+  ubt: "unibright",
+  xvs: "venus",
+  t: "threshold",
+  keep: "keep-network",
+  rari: "rari-governance-token",
+  audio: "audius",
+  yfi: "yearn-finance",
+  ren: "ren",
+  storj: "storj",
+  ntvrk: "ntvrk",
+  agix: "singularitynet",
+  baby: "baby-doge-coin",
+  floki: "floki-inu",
+  pepe: "pepe",
+  bonk: "bonk",
+  memecoin: "memecoin",
+  weth: "weth",
+  usdt: "tether",
+  usdc: "usd-coin",
+  dai: "dai",
+  frax: "frax",
+  tusd: "true-usd",
+  gusd: "gemini-dollar",
+  lrc: "loopring",
+  xvg: "verge",
+  zrx: "0x",
+  qtum: "qtum",
+  iota: "iota",
+  algo: "algorand",
+  eos: "eos",
+  xtz: "tezos",
+  fil: "filecoin",
+  bsv: "bitcoin-cash-sv",
+}
+
 export default function ChartsPage() {
   const [fearGreedData, setFearGreedData] = useState<any>(null)
   const [showFearIndex, setShowFearIndex] = useState(false)
@@ -20,58 +145,46 @@ export default function ChartsPage() {
   const loadFearAndGreedData = async () => {
     try {
       const response = await fetch("/api/fear-greed")
-
-      if (!response.ok) {
-        throw new Error("Failed to fetch fear and greed data")
-      }
-
+      if (!response.ok) throw new Error("Failed to fetch fear and greed data")
       const data = await response.json()
       setFearGreedData(data)
-
-      toast({
-        title: "Success",
-        description: "Fear and Greed Index data loaded successfully",
-      })
+      toast({ title: "Success", description: "Fear and Greed Index data loaded successfully" })
     } catch (error) {
-      console.error("Error loading fear and greed data:", error)
-      toast({
-        title: "Error",
-        description: "Failed to load Fear and Greed Index data",
-        variant: "destructive",
-      })
+      toast({ title: "Error", description: "Failed to load Fear and Greed Index data", variant: "destructive" })
     }
   }
 
   const startLoadingTickerData = async () => {
     try {
-      const response = await fetch("/api/charts")
-
-      if (!response.ok) {
-        throw new Error("Failed to fetch ticker data")
+      const coinId = coinSymbolToIdMap[searchInput.toLowerCase()]
+      if (!coinId) {
+        toast({
+          title: "Invalid Symbol",
+          description: `No CoinGecko ID found for symbol "${searchInput}"`,
+          variant: "destructive",
+        })
+        return
       }
 
-      const data = await response.json()
-
-      // Filter data based on search input
-      const filteredData = Object.values(data).filter(
-        (coin: any) =>
-          coin.name?.toLowerCase().includes(searchInput.toLowerCase()) ||
-          coin.symbol?.toLowerCase().includes(searchInput.toLowerCase()),
+      const response = await fetch(
+        `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${coinId}`
       )
+      if (!response.ok) throw new Error("Failed to fetch ticker data")
 
-      setTickerData(filteredData.slice(0, 10)) // Limit to 10 results
+      const data = await response.json()
+      if (data.length === 0) {
+        toast({
+          title: "Not Found",
+          description: `No data found for "${searchInput}"`,
+          variant: "destructive",
+        })
+        return
+      }
 
-      toast({
-        title: "Success",
-        description: "Ticker data loaded successfully",
-      })
+      setTickerData(data)
+      toast({ title: "Success", description: "Ticker data loaded successfully" })
     } catch (error) {
-      console.error("Error loading ticker data:", error)
-      toast({
-        title: "Error",
-        description: "Failed to load ticker data",
-        variant: "destructive",
-      })
+      toast({ title: "Error", description: "Failed to load ticker data", variant: "destructive" })
     }
   }
 
@@ -112,13 +225,11 @@ export default function ChartsPage() {
                 <CardTitle>TradingView Chart</CardTitle>
               </CardHeader>
               <CardContent className="p-0 h-[800px]">
-                <div className="tradingview-widget-container h-full">
-                  <iframe
-                    src="https://s.tradingview.com/widgetembed/?frameElementId=tradingview_76d87&symbol=BINANCE:BTCUSDT&interval=D&hidesidetoolbar=1&symboledit=1&saveimage=1&toolbarbg=f1f3f6&studies=%5B%5D&hideideas=1&theme=dark&style=1&timezone=exchange&withdateranges=1&studies_overrides=%7B%7D&overrides=%7B%7D&enabled_features=%5B%5D&disabled_features=%5B%5D&locale=en&utm_source=&utm_medium=widget&utm_campaign=chart&utm_term=BINANCE%3ABTCUSDT"
-                    className="w-full h-full"
-                    title="TradingView Chart"
-                  ></iframe>
-                </div>
+                <iframe
+                  src="https://s.tradingview.com/widgetembed/?symbol=BINANCE:BTCUSDT&interval=D&theme=dark"
+                  className="w-full h-full"
+                  title="TradingView Chart"
+                ></iframe>
               </CardContent>
             </Card>
           </TabsContent>
@@ -135,17 +246,14 @@ export default function ChartsPage() {
                 <Button onClick={loadFearAndGreedData} className="w-full">
                   Fetch Fear and Greed Index
                 </Button>
-
                 {fearGreedData && (
                   <div className="space-y-4">
-                    <div className="grid place-items-center">
-                      <div className="text-center">
-                        <div className="text-4xl font-bold">{fearGreedData.data[0].value}</div>
-                        <div className="text-xl font-semibold">{fearGreedData.data[0].value_classification}</div>
-                        <div className="text-sm text-muted-foreground">
-                          Last updated:{" "}
-                          {new Date(Number.parseInt(fearGreedData.data[0].timestamp) * 1000).toLocaleString()}
-                        </div>
+                    <div className="text-center">
+                      <div className="text-4xl font-bold">{fearGreedData.data[0].value}</div>
+                      <div className="text-xl font-semibold">{fearGreedData.data[0].value_classification}</div>
+                      <div className="text-sm text-muted-foreground">
+                        Last updated:{" "}
+                        {new Date(Number.parseInt(fearGreedData.data[0].timestamp) * 1000).toLocaleString()}
                       </div>
                     </div>
 
@@ -160,22 +268,18 @@ export default function ChartsPage() {
 
                     <div className="grid md:grid-cols-2 gap-4">
                       {showFearIndex && (
-                        <div className="flex justify-center">
-                          <img
-                            src="https://alternative.me/images/fng/crypto-fear-and-greed-index-2020-5-13.png"
-                            alt="Crypto Fear Index"
-                            className="max-w-full h-auto"
-                          />
-                        </div>
+                        <img
+                          src="https://alternative.me/images/fng/crypto-fear-and-greed-index-2020-5-13.png"
+                          alt="Fear Index"
+                          className="w-full h-auto"
+                        />
                       )}
                       {showGreedIndex && (
-                        <div className="flex justify-center">
-                          <img
-                            src="https://alternative.me/crypto/fear-and-greed-index.png"
-                            alt="Latest Crypto Greed Index"
-                            className="max-w-full h-auto"
-                          />
-                        </div>
+                        <img
+                          src="https://alternative.me/crypto/fear-and-greed-index.png"
+                          alt="Greed Index"
+                          className="w-full h-auto"
+                        />
                       )}
                     </div>
                   </div>
@@ -194,14 +298,11 @@ export default function ChartsPage() {
               </CardHeader>
               <CardContent className="space-y-6">
                 <div className="flex gap-4">
-                  <div className="flex-1">
-                    <Input
-                      type="text"
-                      placeholder="Search by name or symbol (e.g., BTC, ETH, NEAR)"
-                      value={searchInput}
-                      onChange={(e) => setSearchInput(e.target.value)}
-                    />
-                  </div>
+                  <Input
+                    placeholder="Enter symbol (e.g., BTC, ETH, NEAR)"
+                    value={searchInput}
+                    onChange={(e) => setSearchInput(e.target.value)}
+                  />
                   <Button onClick={startLoadingTickerData}>
                     <Search className="h-4 w-4 mr-2" />
                     Search
@@ -220,16 +321,17 @@ export default function ChartsPage() {
                         </tr>
                       </thead>
                       <tbody>
-                        {tickerData.map((coin, index) => (
-                          <tr key={index} className="border-b">
+                        {tickerData.map((coin, i) => (
+                          <tr key={i} className="border-b">
                             <td className="py-2">{coin.name}</td>
-                            <td className="py-2">{coin.symbol}</td>
-                            <td className="text-right py-2">${coin.price.toFixed(2)}</td>
+                            <td className="py-2">{coin.symbol.toUpperCase()}</td>
+                            <td className="text-right py-2">${coin.current_price.toFixed(6)}</td>
                             <td
-                              className={`text-right py-2 ${coin.change_24h >= 0 ? "text-green-500" : "text-red-500"}`}
+                              className={`text-right py-2 ${
+                                coin.price_change_percentage_24h >= 0 ? "text-green-500" : "text-red-500"
+                              }`}
                             >
-                              {coin.change_24h >= 0 ? "+" : ""}
-                              {coin.change_24h.toFixed(2)}%
+                              {coin.price_change_percentage_24h?.toFixed(2)}%
                             </td>
                           </tr>
                         ))}
@@ -239,7 +341,7 @@ export default function ChartsPage() {
                 ) : (
                   <div className="text-center p-4 bg-muted rounded-lg">
                     <AlertCircle className="h-8 w-8 mx-auto mb-2 text-muted-foreground" />
-                    <p>Search for cryptocurrencies to see their current prices and data</p>
+                    <p>Search for a cryptocurrency by symbol to compare market data</p>
                   </div>
                 )}
               </CardContent>
